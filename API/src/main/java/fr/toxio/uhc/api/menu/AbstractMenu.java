@@ -27,7 +27,6 @@ public abstract class AbstractMenu {
 
     public abstract void loadItems();
 
-
     public boolean isAutoUpdate() {
         return false;
     }
