@@ -15,7 +15,7 @@ public abstract class AbstractScenario implements Listener {
     private boolean parameters;
 
 
-    protected AbstractScenario(Material material,String name, String description, boolean parameters) {
+    protected AbstractScenario(Material material, String name, String description, boolean parameters) {
         this.material = new ItemStack(material);
         this.active = false;
         this.name = name;
