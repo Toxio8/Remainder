@@ -1,7 +1,6 @@
 package fr.toxio.uhc.api;
 
 
-import fr.toxio.uhc.api.bossbar.IBossBarManager;
 import fr.toxio.uhc.api.event.IEventManager;
 import fr.toxio.uhc.api.game.IGameManager;
 import fr.toxio.uhc.api.game.config.biomecenter.IBiomeCenterManager;
