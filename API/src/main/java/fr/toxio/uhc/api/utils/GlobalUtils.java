@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class GlobalUtils {
 
+    public static final Random RANDOM = new Random();
+
     public static boolean isInsideBorder(Location location, double borderSize) {
         double x = location.getX();
         double z = location.getZ();
@@ -14,7 +16,7 @@ public class GlobalUtils {
     }
 
     public static Location getRandomLocationInsideBorder(double borderSize) {
-        Random random = new Random();
+        Random random = RANDOM;
         double x = (random.nextDouble() - 0.5) * 2 * borderSize;
         double z = (random.nextDouble() - 0.5) * 2 * borderSize;
         return new Location(Bukkit.getWorld("world"), x, 0, z);

@@ -1,8 +1,6 @@
 package fr.toxio.uhc.api.module.scenario;
 
-import fr.toxio.uhc.api.menu.AbstractMenu;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
