@@ -7,6 +7,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
+import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.ItemStack;
 
 public class ConfigEnchantManager implements IConfigEnchantManager, Listener {
@@ -46,4 +47,5 @@ public class ConfigEnchantManager implements IConfigEnchantManager, Listener {
                 item.getEnchantmentLevel(enchantment) > level;
     }
     //TODO ANVIL CANCELLER
+
 }

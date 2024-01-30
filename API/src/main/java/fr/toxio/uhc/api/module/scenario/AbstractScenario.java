@@ -21,6 +21,10 @@ public abstract class AbstractScenario implements Listener {
         this.parameters = parameters;
     }
 
+    public abstract boolean isEnabledAfterPvP();
+
+    public abstract void onGameStart();
+
     public ItemStack getMaterial() {
         return material;
     }
