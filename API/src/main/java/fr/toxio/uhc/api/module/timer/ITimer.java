@@ -2,6 +2,10 @@ package fr.toxio.uhc.api.module.timer;
 
 public interface ITimer {
 
+    void startTimer();
+
+    void stopTimer();
+
     String getName();
     void setName(String name);
 

@@ -7,6 +7,7 @@ import fr.toxio.uhc.api.game.IGameManager;
 import fr.toxio.uhc.api.game.config.biomecenter.IBiomeCenterManager;
 import fr.toxio.uhc.api.menu.IMenuManager;
 import fr.toxio.uhc.api.module.IModuleManager;
+import fr.toxio.uhc.api.module.death.IDeathManager;
 import fr.toxio.uhc.api.player.IUHCProfileManager;
 import fr.toxio.uhc.api.power.IPowerManager;
 import fr.toxio.uhc.api.role.IRoleManager;
@@ -17,6 +18,7 @@ import fr.toxio.uhc.core.game.config.biomecenter.BiomeCenterManager;
 import fr.toxio.uhc.core.menu.MenuManager;
 import fr.toxio.uhc.core.menu.MenuRunnable;
 import fr.toxio.uhc.core.module.ModuleManager;
+import fr.toxio.uhc.core.module.death.DeathManager;
 import fr.toxio.uhc.core.player.UHCProfileManager;
 import fr.toxio.uhc.core.power.PowerManager;
 import fr.toxio.uhc.core.role.RoleManager;
@@ -37,6 +39,7 @@ public class UHCCoreAPI extends UHCAPI {
     private ModuleManager moduleManager;
     private EventManager eventManager;
     private BiomeCenterManager biomeCenterManager;
+    private DeathManager deathManager;
 
     public UHCCoreAPI(JavaPlugin plugin) {
         super(plugin);
@@ -59,6 +62,7 @@ public class UHCCoreAPI extends UHCAPI {
         this.gameManager = new GameManager();
         this.eventManager = new EventManager(UHCAPI.get());
         this.menuRunnable = new MenuRunnable(UHCAPI.get());
+        this.deathManager = new DeathManager();
         this.biomeCenterManager = new BiomeCenterManager();
     }
 
@@ -110,5 +114,9 @@ public class UHCCoreAPI extends UHCAPI {
     @Override
     public IModuleManager getModuleManager() {
         return moduleManager;
+    }
+    @Override
+    public IDeathManager getDeathManager() {
+        return deathManager;
     }
 }

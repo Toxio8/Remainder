@@ -20,6 +20,7 @@ public class ScenarioManager implements IScenarioManager {
     public List<AbstractScenario> getScenarios() {
         return scenarios;
     }
+
     public AbstractScenario getScenario(AbstractScenario scenario) {
         for (AbstractScenario scenarios : scenarios) {
             if (scenarios.equals(scenario)) {

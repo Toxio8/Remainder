@@ -11,6 +11,7 @@ public abstract class AbstractTimer implements ITimer {
     private int minValue;
     private int maxValue;
     private boolean running;
+    private BukkitRunnable runnable;
 
     public AbstractTimer(String name, int initialDuration, int minValue, int maxValue, boolean positive) {
         this.name = name;
@@ -21,6 +22,7 @@ public abstract class AbstractTimer implements ITimer {
         this.running = false;
     }
 
+    @Override
     public void startTimer() {
         this.running = true;
         BukkitRunnable runnable = (BukkitRunnable) new BukkitRunnable() {
@@ -46,7 +48,19 @@ public abstract class AbstractTimer implements ITimer {
 
             }
         }.runTaskTimer(UHCAPI.get().getPlugin(), 0, 20);
+        this.runnable = runnable;
     }
+
+    @Override
+    public void stopTimer() {
+        if (runnable == null) {
+            System.out.println("The timer is not running");
+            return;
+        }
+        runnable.cancel();
+    }
+
+
 
     public abstract void onReveal();
 

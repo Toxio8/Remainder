@@ -1,6 +1,7 @@
 package fr.toxio.uhc.api.module;
 
 
+import fr.toxio.uhc.api.module.death.IDeathManager;
 import fr.toxio.uhc.api.module.timer.ITimerManager;
 import fr.toxio.uhc.api.module.win.IWinManager;
 
@@ -11,5 +12,7 @@ public interface IModule {
     IWinManager getWinManager();
 
     ITimerManager getTimerManager();
+
+    IDeathManager getDeathManager();
 
 }

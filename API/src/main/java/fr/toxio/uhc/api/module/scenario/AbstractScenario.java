@@ -11,17 +11,17 @@ public abstract class AbstractScenario implements Listener {
     private String name;
     private String description;
     private boolean parameters;
+    private boolean isEnabledAfterPvP;
 
-
-    protected AbstractScenario(Material material, String name, String description, boolean parameters) {
+    protected AbstractScenario(Material material, String name, String description, boolean parameters, boolean isEnabledAfterPvP) {
         this.material = new ItemStack(material);
         this.active = false;
         this.name = name;
         this.description = description;
         this.parameters = parameters;
+        this.isEnabledAfterPvP = isEnabledAfterPvP;
     }
 
-    public abstract boolean isEnabledAfterPvP();
 
     public abstract void onGameStart();
 

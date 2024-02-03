@@ -9,12 +9,14 @@ import fr.toxio.uhc.api.game.config.diamond.IConfigDiamondLimit;
 import fr.toxio.uhc.api.game.config.enchant.IConfigEnchant;
 import fr.toxio.uhc.api.game.config.inv.IConfigInv;
 import fr.toxio.uhc.api.module.IModule;
+import fr.toxio.uhc.api.module.death.IDeathManager;
 import fr.toxio.uhc.api.module.timer.ITimerManager;
 import fr.toxio.uhc.api.module.win.IWinManager;
 import fr.toxio.uhc.core.game.config.border.ConfigBorder;
 import fr.toxio.uhc.core.game.config.diamond.ConfigDIamondLimit;
 import fr.toxio.uhc.core.game.config.enchant.ConfigEnchant;
 import fr.toxio.uhc.core.game.config.inv.ConfigInv;
+import fr.toxio.uhc.core.module.death.DeathManager;
 import fr.toxio.uhc.core.module.timer.TimerManager;
 import fr.toxio.uhc.core.module.win.WinManager;
 
@@ -29,6 +31,8 @@ public class GameManager implements IGameManager {
     private IConfigDiamondLimit configDiamondLimit;
     private IConfigBorder iConfigBorder;
     private IConfigInv configInv;
+    private IDeathManager deathManager;
+
 
 
     public GameManager() {
@@ -39,12 +43,15 @@ public class GameManager implements IGameManager {
         this.configDiamondLimit = new ConfigDIamondLimit();
         this.iConfigBorder = new ConfigBorder();
         this.configInv = new ConfigInv();
+        this.deathManager = new DeathManager();
         this.gameStates = GameStates.WAITING;
         IModule abstractModule = UHCAPI.get().getModuleManager().getModule();
         if (abstractModule == null) {
             this.winManager = new WinManager();
+            this.deathManager = new DeathManager();
         } else {
             this.winManager = abstractModule.getWinManager();
+            this.deathManager = abstractModule.getDeathManager();
         }
     }
 
@@ -105,5 +112,13 @@ public class GameManager implements IGameManager {
     @Override
     public IConfigInv getConfigInv() {
         return configInv;
+    }
+    @Override
+    public IDeathManager getDeathManager() {
+        return deathManager;
+    }
+
+    public void setDeathManager(IDeathManager deathManager) {
+        this.deathManager = deathManager;
     }
 }

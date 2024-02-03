@@ -3,6 +3,7 @@ package fr.toxio.uhc.core.event;
 import fr.toxio.uhc.api.UHCAPI;
 import fr.toxio.uhc.api.event.IEventManager;
 import fr.toxio.uhc.core.menu.MenuListener;
+import fr.toxio.uhc.core.module.death.DeathListener;
 import fr.toxio.uhc.core.power.PowerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -21,6 +22,7 @@ public class EventManager extends IEventManager {
     protected void loadEvents() {
         this.registerEvent(new PowerListener(uhcapi));
         this.registerEvent(new MenuListener(uhcapi));
+        this.registerEvent(new DeathListener());
     }
 
     @Override

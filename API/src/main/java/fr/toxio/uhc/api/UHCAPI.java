@@ -6,6 +6,7 @@ import fr.toxio.uhc.api.game.IGameManager;
 import fr.toxio.uhc.api.game.config.biomecenter.IBiomeCenterManager;
 import fr.toxio.uhc.api.menu.IMenuManager;
 import fr.toxio.uhc.api.module.IModuleManager;
+import fr.toxio.uhc.api.module.death.IDeathManager;
 import fr.toxio.uhc.api.player.IUHCProfileManager;
 import fr.toxio.uhc.api.power.IPowerManager;
 import fr.toxio.uhc.api.role.IRoleManager;
@@ -61,5 +62,7 @@ public abstract class UHCAPI {
     public abstract IEventManager getEventManager();
 
     public abstract IModuleManager getModuleManager();
+
+    public abstract IDeathManager getDeathManager();
 }
 
