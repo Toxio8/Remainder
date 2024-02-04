@@ -15,8 +15,8 @@ public class ConfigBorderManager implements IConfigBorderManager {
 
 
 
-    public void handleBorder() {
-        WorldBorder worldBorder = Bukkit.getWorld("world").getWorldBorder();
+    public void handleBorder(UHCAPI uhcapi) {
+        WorldBorder worldBorder = Bukkit.getWorld(uhcapi.getWorldManager().getWorld().getUID()).getWorldBorder();
         worldBorder.setSize(UHCAPI.get().getGameManager().getConfigBorder().getInitialBorder());
         IConfigBorder configBorder = UHCAPI.get().getGameManager().getConfigBorder();
 

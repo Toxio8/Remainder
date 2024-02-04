@@ -14,6 +14,7 @@ public class ConfigBorder implements IConfigBorder {
         return this.initalBorder;
     }
 
+    
     @Override
     public void setInitialBorder(int initialBorder) {
         this.initalBorder = initialBorder;

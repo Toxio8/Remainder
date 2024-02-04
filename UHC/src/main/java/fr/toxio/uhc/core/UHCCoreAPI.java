@@ -12,6 +12,7 @@ import fr.toxio.uhc.api.player.IUHCProfileManager;
 import fr.toxio.uhc.api.power.IPowerManager;
 import fr.toxio.uhc.api.role.IRoleManager;
 import fr.toxio.uhc.api.team.ITeamManager;
+import fr.toxio.uhc.api.worldgen.IWorldManager;
 import fr.toxio.uhc.core.event.EventManager;
 import fr.toxio.uhc.core.game.GameManager;
 import fr.toxio.uhc.core.game.config.biomecenter.BiomeCenterManager;
@@ -40,6 +41,7 @@ public class UHCCoreAPI extends UHCAPI {
     private EventManager eventManager;
     private BiomeCenterManager biomeCenterManager;
     private DeathManager deathManager;
+    private WorldManager worldManager;
 
     public UHCCoreAPI(JavaPlugin plugin) {
         super(plugin);
@@ -63,11 +65,16 @@ public class UHCCoreAPI extends UHCAPI {
         this.eventManager = new EventManager(UHCAPI.get());
         this.menuRunnable = new MenuRunnable(UHCAPI.get());
         this.deathManager = new DeathManager();
+        this.worldManager = new WorldManager(this);
         this.biomeCenterManager = new BiomeCenterManager();
     }
 
     @Override
     public void onDisable() {
+    }
+    @Override
+    public IWorldManager getWorldManager() {
+        return worldManager;
     }
 
     @Override

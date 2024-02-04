@@ -11,6 +11,7 @@ import fr.toxio.uhc.api.player.IUHCProfileManager;
 import fr.toxio.uhc.api.power.IPowerManager;
 import fr.toxio.uhc.api.role.IRoleManager;
 import fr.toxio.uhc.api.team.ITeamManager;
+import fr.toxio.uhc.api.worldgen.IWorldManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class UHCAPI {
@@ -39,6 +40,8 @@ public abstract class UHCAPI {
 
     public abstract IPowerManager getPowerManager();
 
+
+    public abstract IWorldManager getWorldManager();
 
     public abstract IBiomeCenterManager getBiomeCenterManager();
 
