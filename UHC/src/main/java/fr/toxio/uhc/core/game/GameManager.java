@@ -13,7 +13,7 @@ import fr.toxio.uhc.api.module.death.IDeathManager;
 import fr.toxio.uhc.api.module.timer.ITimerManager;
 import fr.toxio.uhc.api.module.win.IWinManager;
 import fr.toxio.uhc.core.game.config.border.ConfigBorder;
-import fr.toxio.uhc.core.game.config.diamond.ConfigDIamondLimit;
+import fr.toxio.uhc.core.game.config.diamond.ConfigDiamondLimit;
 import fr.toxio.uhc.core.game.config.enchant.ConfigEnchant;
 import fr.toxio.uhc.core.game.config.inv.ConfigInv;
 import fr.toxio.uhc.core.module.death.DeathManager;
@@ -37,10 +37,9 @@ public class GameManager implements IGameManager {
 
     public GameManager() {
         this.gameConfiguration = new GameConfiguration();
-        this.gameManager = new GameManager();
         this.timerManager = new TimerManager();
         this.configEnchant = new ConfigEnchant();
-        this.configDiamondLimit = new ConfigDIamondLimit();
+        this.configDiamondLimit = new ConfigDiamondLimit();
         this.iConfigBorder = new ConfigBorder();
         this.configInv = new ConfigInv();
         this.deathManager = new DeathManager();
@@ -80,10 +79,6 @@ public class GameManager implements IGameManager {
         return gameConfiguration;
     }
 
-    @Override
-    public IGameManager getGameManager() {
-        return gameManager;
-    }
 
     @Override
     public void setGameManager(IGameManager gameManager) {

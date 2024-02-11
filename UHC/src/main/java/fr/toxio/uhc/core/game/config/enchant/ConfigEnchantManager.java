@@ -46,6 +46,5 @@ public class ConfigEnchantManager implements IConfigEnchantManager, Listener {
         return item.getEnchantments().containsKey(enchantment) &&
                 item.getEnchantmentLevel(enchantment) > level;
     }
-    //TODO ANVIL CANCELLER
 
 }

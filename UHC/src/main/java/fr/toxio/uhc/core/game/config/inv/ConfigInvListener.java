@@ -10,12 +10,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
 
 public class ConfigInvListener implements Listener {
 
+    BukkitTask task;
+
     @EventHandler
     public void onStartGame(StartGameEvent event) {
-        Bukkit.getScheduler().runTaskLater(UHCAPI.get().getPlugin(), () -> {
+        if (task != null) {
+            task.cancel();
+        }
+        this.task = Bukkit.getScheduler().runTaskLater(UHCAPI.get().getPlugin(), () -> {
             for (IUHCProfile profiles : UHCAPI.get().getPlayerManager().getProfiles().values()) {
                 Player player = profiles.getPlayer();
                 for (ItemStack itemStack : UHCAPI.get().getGameManager().getConfigInv().getStartInventory()) {
@@ -38,6 +45,7 @@ public class ConfigInvListener implements Listener {
 
             }
         },4);
+        event.isCancelled();
     }
     @EventHandler
     public void deathEvent(UHCDeathEvent event) {

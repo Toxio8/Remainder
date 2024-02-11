@@ -18,4 +18,5 @@ public class DeathManager implements IDeathManager {
         }
         Bukkit.broadcastMessage("-----------------------------------");
     }
+
 }

@@ -42,7 +42,7 @@ public class Cooldown {
 
 
     public String getCooldownMessage() {
-        return "§cVous ne pouvez pas utiliser " + name + "."+ name +" sera disponible dans " + TimeUtils.beautifulTime(getSeconds());
+        return "§cVous ne pouvez pas utiliser " + name +" sera disponible dans " + TimeUtils.beautifulTime(getSeconds());
     }
 
 

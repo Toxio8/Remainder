@@ -1,9 +1,10 @@
 package fr.toxio.uhc.api.game.config.biomecenter;
 
+import fr.toxio.uhc.api.worldgen.biome.BiomeState;
 import org.bukkit.block.Biome;
 
 public interface IBiomeCenterManager {
-    void setBiome(Biome biome);
+    void setBiome(BiomeState biome);
 
-    Biome getBiome();
+    BiomeState getBiome();
 }

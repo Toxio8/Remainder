@@ -1,3 +1,6 @@
 name: UHC
 version: '${project.version}'
 main: fr.toxio.uhc.core.UHC
+commands:
+  config:
+    description: Commande qui permet d'ouvrir un menu pour config la partie

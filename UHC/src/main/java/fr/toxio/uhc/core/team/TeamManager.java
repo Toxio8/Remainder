@@ -13,7 +13,6 @@ import java.util.UUID;
 
 public class TeamManager implements ITeamManager {
 
-
     @Override
     public void registerTeam(Class<? extends AbstractTeam> clazz) {
         TeamMeta teamMeta = clazz.getAnnotation(TeamMeta.class);

@@ -2,7 +2,7 @@ package fr.toxio.uhc.core.game.config.diamond;
 
 import fr.toxio.uhc.api.game.config.diamond.IConfigDiamondLimit;
 
-public class ConfigDIamondLimit implements IConfigDiamondLimit {
+public class ConfigDiamondLimit implements IConfigDiamondLimit {
 
     int diamondLimit = -1;
     @Override

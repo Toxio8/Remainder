@@ -20,7 +20,6 @@ public interface IGameManager {
 
     IGameConfiguration getGameConfiguration();
 
-    IGameManager getGameManager();
 
     IConfigBorder getConfigBorder();
 

@@ -12,7 +12,10 @@ import fr.toxio.uhc.api.player.IUHCProfileManager;
 import fr.toxio.uhc.api.power.IPowerManager;
 import fr.toxio.uhc.api.role.IRoleManager;
 import fr.toxio.uhc.api.team.ITeamManager;
+import fr.toxio.uhc.api.utils.GlobalUtils;
+import fr.toxio.uhc.api.worldgen.ICaveManager;
 import fr.toxio.uhc.api.worldgen.IWorldManager;
+import fr.toxio.uhc.core.commands.ConfigCommand;
 import fr.toxio.uhc.core.event.EventManager;
 import fr.toxio.uhc.core.game.GameManager;
 import fr.toxio.uhc.core.game.config.biomecenter.BiomeCenterManager;
@@ -24,11 +27,14 @@ import fr.toxio.uhc.core.player.UHCProfileManager;
 import fr.toxio.uhc.core.power.PowerManager;
 import fr.toxio.uhc.core.role.RoleManager;
 import fr.toxio.uhc.core.team.TeamManager;
+import fr.toxio.uhc.core.worldgen.BiomeManager;
+import fr.toxio.uhc.core.worldgen.WorldManager;
+import fr.toxio.uhc.core.worldgen.cave.CaveManager;
+import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class UHCCoreAPI extends UHCAPI {
-
-
 
     private UHCProfileManager uhcProfileManager;
     private RoleManager roleManager;
@@ -41,6 +47,7 @@ public class UHCCoreAPI extends UHCAPI {
     private EventManager eventManager;
     private BiomeCenterManager biomeCenterManager;
     private DeathManager deathManager;
+    private CaveManager caveManager;
     private WorldManager worldManager;
 
     public UHCCoreAPI(JavaPlugin plugin) {
@@ -50,7 +57,7 @@ public class UHCCoreAPI extends UHCAPI {
 
     @Override
     public void onLoad() {
-
+        new BiomeManager().removeBiomes();
     }
 
     @Override
@@ -62,21 +69,33 @@ public class UHCCoreAPI extends UHCAPI {
         this.teamManager = new TeamManager();
         this.powerManager = new PowerManager();
         this.gameManager = new GameManager();
-        this.eventManager = new EventManager(UHCAPI.get());
-        this.menuRunnable = new MenuRunnable(UHCAPI.get());
+        this.eventManager = new EventManager(this);
+        this.menuRunnable = new MenuRunnable(this);
         this.deathManager = new DeathManager();
-        this.worldManager = new WorldManager(this);
         this.biomeCenterManager = new BiomeCenterManager();
+        this.caveManager = new CaveManager();
+        this.worldManager = new WorldManager(this);
+        Bukkit.getPluginCommand("config").setExecutor(new ConfigCommand());
+
     }
 
     @Override
     public void onDisable() {
+        if (UHCAPI.get().getWorldManager().getWorld() != null && UHCAPI.get().getWorldManager().getWorld().getWorldFolder().exists()) {
+            Bukkit.unloadWorld(UHCAPI.get().getWorldManager().getWorld(),false);
+            GlobalUtils.deleteWorld(UHCAPI.get().getWorldManager().getWorld().getWorldFolder());
+            System.out.println("Le Monde Game a bien etais supprimé");
+        }
     }
     @Override
     public IWorldManager getWorldManager() {
-        return worldManager;
+        return this.worldManager;
     }
 
+    @Override
+    public ICaveManager getCaveManager() {
+        return this.caveManager;
+    }
     @Override
     public IBiomeCenterManager getBiomeCenterManager() {
         return biomeCenterManager;

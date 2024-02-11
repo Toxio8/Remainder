@@ -15,4 +15,11 @@ public interface IGameConfiguration {
     void setAppleDropRate(int appleDropRate);
 
 
+    boolean isStarted();
+
+    void setStarted(boolean started);
+
+    boolean isGenerating();
+
+    void setGenerating(boolean generating);
 }

@@ -7,13 +7,15 @@ public class GameConfiguration implements IGameConfiguration {
     private String name;
     private int slots;
     private int appleDropRate;
-
-
+    private boolean started;
+    private boolean generating;
 
     public GameConfiguration() {
         this.name = "UHC";
         this.slots = 50 ;
         this.appleDropRate = 1;
+        this.started = false;
+        this.generating = false;
     }
 
     @Override
@@ -46,5 +48,20 @@ public class GameConfiguration implements IGameConfiguration {
         this.appleDropRate = appleDropRate;
     }
 
-
+    @Override
+    public boolean isStarted() {
+        return started;
+    }
+    @Override
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+    @Override
+    public boolean isGenerating() {
+        return generating;
+    }
+    @Override
+    public void setGenerating(boolean generating) {
+        this.generating = generating;
+    }
 }

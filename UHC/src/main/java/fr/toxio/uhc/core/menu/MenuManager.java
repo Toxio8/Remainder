@@ -1,15 +1,22 @@
 package fr.toxio.uhc.core.menu;
 
+import fr.toxio.uhc.api.UHCAPI;
 import fr.toxio.uhc.api.menu.AbstractMenu;
 import fr.toxio.uhc.api.menu.IMenuManager;
+import fr.toxio.uhc.core.game.inventoryconfig.BiomeMenu;
+import fr.toxio.uhc.core.game.inventoryconfig.MainMenu;
+import fr.toxio.uhc.core.game.inventoryconfig.WorldMenu;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 
 public class MenuManager implements IMenuManager {
 
-    public MenuManager() {
 
+    public MenuManager() {
+        menus.add(new MainMenu());
+        menus.add(new WorldMenu());
+        menus.add(new BiomeMenu());
     }
 
     @Override

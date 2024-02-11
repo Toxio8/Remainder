@@ -17,7 +17,7 @@ public class ConfigDiamonLimitManager implements IConfigDiamondLimitManager,List
         Player player = event.getPlayer();
         IUHCProfile profile = UHCAPI.get().getPlayerManager().getProfile(player.getUniqueId());
         if (event.getBlock().getType() == Material.DIAMOND_BLOCK) {
-            if (profile.getMinedDiamonds() > UHCAPI.get().getGameManager().getGameManager().getConfigDiamondLimit().getDiamondLimit()) {
+            if (profile.getMinedDiamonds() > UHCAPI.get().getGameManager().getConfigDiamondLimit().getDiamondLimit()) {
                 event.setCancelled(true);
                 ItemStack stack = new ItemStack(Material.GOLD_INGOT);
                 player.getWorld().dropItemNaturally(event.getBlock().getLocation(), stack);
